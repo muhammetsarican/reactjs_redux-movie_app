@@ -1,9 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
+import { Link, Route } from 'react-router-dom/cjs/react-router-dom.min';
+import MoviePage from "./Components/Pages/MoviePage"
 
-function App() {
-  return (
-    <div className="App">
+import React, { Component } from 'react'
+
+export class App extends Component {
+  render() {
+    {console.log(this.props)}
+    return (
+      <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <p>
@@ -17,9 +23,14 @@ function App() {
         >
           Learn React
         </a>
+        <Link to="/movies">
+          Movies
+        </Link>
       </header>
+      <Route path="/movies" component={MoviePage}></Route>
     </div>
-  );
+    )
+  }
 }
 
-export default App;
+export default App
