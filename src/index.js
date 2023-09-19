@@ -9,13 +9,14 @@ import { composeWithDevTools } from "redux-devtools-extension"
 import { rootReducer } from './Redux/Reducers/reducer';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom"
+import logger from "redux-logger";
 
 // const enhancers=()=>{
 //   applyMiddleware(thunk);
 // }
 const store = createStore(rootReducer,
   composeWithDevTools(
-    applyMiddleware(thunk)
+    applyMiddleware(thunk, logger)
   ));
 console.log(store.getState())
 

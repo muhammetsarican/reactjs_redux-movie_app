@@ -1,7 +1,5 @@
-import logo from './logo.svg';
 import './App.css';
-import { Link, Route } from 'react-router-dom/cjs/react-router-dom.min';
-import { InView } from 'react-intersection-observer'
+import { Route } from 'react-router-dom/cjs/react-router-dom.min';
 import "semantic-ui-css/semantic.min.css"
 
 import MoviePage from "./Components/Pages/MoviePage"
@@ -10,16 +8,10 @@ import React, { Component } from 'react'
 
 import {
   Container,
-  Divider,
-  Grid,
-  Header,
-  Image,
-  List,
-  Menu,
-  Segment,
 } from 'semantic-ui-react'
 
-import { menuStyle, fixedMenuStyle } from './Helpers/style.helper';
+import Footer from './Components/Footer';
+import Header from './Components/Header';
 
 export class App extends Component {
   state = {
@@ -27,92 +19,14 @@ export class App extends Component {
     overlayFixed: false,
   }
   render() {
-    { console.log(this.props) }
-    const { menuFixed} = this.state
-
+    console.log(this.props)
     return (
       <div className="App">
-        <InView onChange={this.toggleTopMenu}>
-          <Menu
-            borderless
-            fixed={menuFixed ? 'top' : null}
-            style={menuFixed ? fixedMenuStyle : menuStyle}
-          >
-
-            <Container text>
-              <Menu.Item>
-                <Image size='mini' src='https://react.semantic-ui.com/logo.png' />
-              </Menu.Item>
-              <Menu.Item header>Turkish Movies</Menu.Item>
-              <Menu.Item as={Link} to="/movies">
-                  Movies
-                </Menu.Item>
-              <Menu.Item as='a'>Add New</Menu.Item>
-            </Container>
-          </Menu>
-        </InView>
-        <Container style={{height:"100dvh"}}>
+        <Header />
+        <Container style={{height:"100dvh",marginTop:"5rem"}}>
           <Route path="/movies" component={MoviePage}></Route>
         </Container>
-
-        <Segment inverted style={{ margin: '5em 0em 0em', padding: '5em 0em' }} vertical>
-          <Container textAlign='center'>
-            <Grid columns={4} divided stackable inverted>
-              <Grid.Row>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Group 1' />
-                  <List link inverted>
-                    <List.Item as='a'>Link One</List.Item>
-                    <List.Item as='a'>Link Two</List.Item>
-                    <List.Item as='a'>Link Three</List.Item>
-                    <List.Item as='a'>Link Four</List.Item>
-                  </List>
-                </Grid.Column>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Group 2' />
-                  <List link inverted>
-                    <List.Item as='a'>Link One</List.Item>
-                    <List.Item as='a'>Link Two</List.Item>
-                    <List.Item as='a'>Link Three</List.Item>
-                    <List.Item as='a'>Link Four</List.Item>
-                  </List>
-                </Grid.Column>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Group 3' />
-                  <List link inverted>
-                    <List.Item as='a'>Link One</List.Item>
-                    <List.Item as='a'>Link Two</List.Item>
-                    <List.Item as='a'>Link Three</List.Item>
-                    <List.Item as='a'>Link Four</List.Item>
-                  </List>
-                </Grid.Column>
-                <Grid.Column>
-                  <Header inverted as='h4' content='Footer Header' />
-                  <p>
-                    Extra space for a call to action inside the footer that could help re-engage
-                    users.
-                  </p>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-            <Divider inverted section />
-            <Image src='https://react.semantic-ui.com/logo.png' centered size='mini' />
-            <List horizontal inverted divided link size='small'>
-              <List.Item as='a' href='#'>
-                Site Map
-              </List.Item>
-              <List.Item as='a' href='#'>
-                Contact Us
-              </List.Item>
-              <List.Item as='a' href='#'>
-                Terms and Conditions
-              </List.Item>
-              <List.Item as='a' href='#'>
-                Privacy Policy
-              </List.Item>
-            </List>
-          </Container>
-        </Segment>
+        <Footer />
       </div>
     )
   }
