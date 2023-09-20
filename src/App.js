@@ -12,6 +12,7 @@ import {
 
 import Footer from './Components/Footer';
 import Header from './Components/Header';
+import NewMoviePage from './Components/Pages/NewMoviePage';
 
 export class App extends Component {
   state = {
@@ -19,12 +20,12 @@ export class App extends Component {
     overlayFixed: false,
   }
   render() {
-    console.log(this.props)
     return (
       <div className="App">
         <Header />
-        <Container style={{height:"100dvh",marginTop:"5rem"}}>
-          <Route path="/movies" component={MoviePage}></Route>
+        <Container style={{minHeight:"100dvh",marginTop:"5rem"}}>
+          <Route path="/movies" component={MoviePage} exact></Route>
+          <Route path="/movies/new" component={NewMoviePage} exact></Route>
         </Container>
         <Footer />
       </div>

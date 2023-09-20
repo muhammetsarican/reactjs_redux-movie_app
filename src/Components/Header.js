@@ -10,7 +10,7 @@ import { InView } from 'react-intersection-observer'
 import { fixedMenuStyle } from '../Helpers/style.helper'
 
 
-import { Link } from "react-router-dom"
+import { Link, NavLink } from "react-router-dom"
 export class Header extends Component {
     render() {
         return (
@@ -25,11 +25,11 @@ export class Header extends Component {
                         <Menu.Item>
                             <Image size='mini' src='https://react.semantic-ui.com/logo.png' />
                         </Menu.Item>
-                        <Menu.Item header>Turkish Movies</Menu.Item>
-                        <Menu.Item as={Link} to="/movies">
+                        <Menu.Item header as={Link} to="/">Turkish Movies</Menu.Item>
+                        <Menu.Item as={NavLink} to="/movies" exact={true}>
                             Movies
                         </Menu.Item>
-                        <Menu.Item as='a'>Add New</Menu.Item>
+                        <Menu.Item as={NavLink} to="/movies/new" exact={true}>Add New</Menu.Item>
                     </Container>
                 </Menu>
             </InView>

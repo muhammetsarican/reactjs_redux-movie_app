@@ -10,15 +10,12 @@ import { rootReducer } from './Redux/Reducers/reducer';
 import { Provider } from 'react-redux';
 import { BrowserRouter as Router } from "react-router-dom"
 import logger from "redux-logger";
+import reduxPromise from "redux-promise-middleware";
 
-// const enhancers=()=>{
-//   applyMiddleware(thunk);
-// }
 const store = createStore(rootReducer,
   composeWithDevTools(
-    applyMiddleware(thunk, logger)
+    applyMiddleware(reduxPromise, thunk, logger )
   ));
-console.log(store.getState())
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
