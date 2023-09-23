@@ -26,6 +26,8 @@ export class App extends Component {
         <Container style={{minHeight:"100dvh",marginTop:"5rem"}}>
           <Route path="/movies" component={MoviePage} exact></Route>
           <Route path="/movies/new" component={NewMoviePage} exact></Route>
+          <Route path="/movies/new" component={NewMoviePage} exact></Route>
+          <Route path="/movie/:_id" component={NewMoviePage} exact></Route>
         </Container>
         <Footer />
       </div>

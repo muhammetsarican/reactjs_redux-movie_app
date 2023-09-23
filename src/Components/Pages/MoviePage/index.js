@@ -10,7 +10,6 @@ class MoviePage extends Component {
   }
   componentDidMount(){
     this.props.fetchMovies();
-    console.log(this.props.movies)
   }
   render() {
     return (

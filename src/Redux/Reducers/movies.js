@@ -3,7 +3,7 @@ import { FETCH_MOVIES_PENDING, FETCH_MOVIES_FULFILLED, FETCH_MOVIES_REJECTED } f
 const initialState={
     fetching:false,
     fetched:false,
-    movies:[],
+    movieList:[],
     error:{}
 }
 const MovieReducer=(state=initialState, action) => {
@@ -16,7 +16,7 @@ const MovieReducer=(state=initialState, action) => {
         case FETCH_MOVIES_FULFILLED:
             return {
                 ...state,
-                movies: action.payload,
+                movieList: action.payload,
                 fetching:false,
                 fetched:true
             }
