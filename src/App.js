@@ -13,6 +13,7 @@ import {
 import Footer from './Components/Footer';
 import Header from './Components/Header';
 import NewMoviePage from './Components/Pages/NewMoviePage';
+import HomePage from './Components/Pages/HomePage';
 
 export class App extends Component {
   state = {
@@ -24,6 +25,7 @@ export class App extends Component {
       <div className="App">
         <Header />
         <Container style={{minHeight:"100dvh",marginTop:"5rem"}}>
+          <Route path="/" component={HomePage} exact></Route>
           <Route path="/movies" component={MoviePage} exact></Route>
           <Route path="/movies/new" component={NewMoviePage} exact></Route>
           <Route path="/movies/new" component={NewMoviePage} exact></Route>

@@ -7,7 +7,7 @@ import { fetchMovies, fetchDeleteMovie } from "../../../Redux/Actions/movies"
 class MoviePage extends Component {
   static propTypes = {
     movies: PropTypes.object.isRequired,
-    // fetchDeleteMovie: PropTypes.func.isRequired
+    fetchDeleteMovie: PropTypes.func.isRequired
   }
   componentDidMount(){
     this.props.fetchMovies();
