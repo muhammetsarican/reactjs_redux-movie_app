@@ -9,14 +9,16 @@ export class NewMovieForm extends Component {
     id: this.props.movie ? this.props.movie._id : "",
     title: this.props.movie ? this.props.movie.title : "",
     cover: this.props.movie ? this.props.movie.cover : "",
-    errors: {}
+    errors: {},
+    redirect:false
   }
   static propTypes = {
     fetchNewMovie: PropTypes.func.isRequired
   }
   handleChange = (e) => {
     this.setState({
-      [e.target.name]: e.target.value
+      [e.target.name]: e.target.value,
+      redirect:true
     })
   }
   handleSubmit = () => {
@@ -96,7 +98,7 @@ export class NewMovieForm extends Component {
     )
     return (
       <div>
-        {this.props.newMovie.done ? <Redirect to="/movies" /> : form}
+        {this.props.newMovie.done && this.state.redirect ? <Redirect to="/movies" /> : form}
       </div>
     )
   }
