@@ -4,7 +4,7 @@ import MovieCard from './MovieCard'
 import { Grid } from 'semantic-ui-react'
 import { PacmanLoader } from "react-spinners"
   
-const MovieList = ({ movies }) => {
+const MovieList = ({ movies, fetchDeleteMovie }) => {
     const emptyMessage = (
         <p>There are no movies yet.</p>
     )
@@ -18,7 +18,7 @@ const MovieList = ({ movies }) => {
                 <Grid stackable columns={3}>
                     {
                         movies.movieList.map(movie =>
-                            <MovieCard key={movie._id} movie={movie} />
+                            <MovieCard key={movie._id} movie={movie} fetchDeleteMovie={fetchDeleteMovie}/>
                         )
                     }
                 </Grid>
